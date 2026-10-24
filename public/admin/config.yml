@@ -1,0 +1,91 @@
+backend:
+  name: git-gateway
+  branch: main # Default production branch on Netlify / GitHub
+
+# When developing locally without Netlify Identity, toggle local_backend to true:
+# local_backend: true
+
+publish_mode: editorial_workflow
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "posts"
+    label: "Travel Articles"
+    label_singular: "Travel Article"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string", default: "Income Shuvo" }
+      - { label: "Cover Image", name: "coverImage", widget: "image" }
+      - { label: "Featured Post", name: "featured", widget: "boolean", default: false }
+      - { label: "Category", name: "category", widget: "select", options: [
+          "Bangladesh",
+          "Mountains",
+          "Beaches",
+          "Adventure",
+          "Culture & Food",
+          "Budget Travel",
+          "International",
+          "Travel Tips"
+        ]}
+      - { label: "Destination", name: "destination", widget: "string" }
+      - { label: "Country", name: "country", widget: "string" }
+      - { label: "Reading Time", name: "readingTime", widget: "string", default: "6 min read" }
+      - { label: "Estimated Cost", name: "estimatedCost", widget: "string", hint: "e.g. $120 - $180 (BDT 14,000 - 22,000) for 3 days" }
+      - { label: "Excerpt / Deck", name: "excerpt", widget: "text" }
+      - { label: "SEO Meta Title", name: "metaTitle", widget: "string", required: false }
+      - { label: "SEO Meta Description", name: "metaDescription", widget: "text", required: false }
+      - { label: "Keywords", name: "keywords", widget: "list", required: false }
+      - { label: "Body Content (Markdown)", name: "body", widget: "markdown" }
+
+  - name: "destinations"
+    label: "Destinations"
+    label_singular: "Destination"
+    folder: "content/destinations"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Destination Name", name: "name", widget: "string" }
+      - { label: "Country", name: "country", widget: "string" }
+      - { label: "Region", name: "region", widget: "select", options: [
+          "Bangladesh",
+          "South Asia",
+          "East Asia",
+          "Europe",
+          "Middle East",
+          "Southeast Asia"
+        ]}
+      - { label: "Travel Style", name: "style", widget: "select", options: [
+          "Mountains & Clouds",
+          "Beaches & Islands",
+          "Ancient Heritage",
+          "Rainforest & Tea Gardens",
+          "Scenic Train Journeys"
+        ]}
+      - { label: "Best Season to Visit", name: "bestTime", widget: "string" }
+      - { label: "Typical Daily Budget", name: "typicalBudget", widget: "string" }
+      - { label: "Cover Image", name: "coverImage", widget: "image" }
+      - { label: "Editorial Summary", name: "summary", widget: "text" }
+
+  - name: "settings"
+    label: "Site Settings"
+    delete: false
+    files:
+      - name: "site_info"
+        label: "General & Branding"
+        file: "content/settings/general.json"
+        fields:
+          - { label: "Website Name", name: "siteName", widget: "string", default: "Income Shuvo" }
+          - { label: "Tagline", name: "tagline", widget: "string", default: "Explore More. Travel Better. Discover the World." }
+          - { label: "Lead Author", name: "leadAuthor", widget: "string", default: "Income Shuvo" }
+          - { label: "Author Bio", name: "authorBio", widget: "text" }
+          - { label: "Contact Email", name: "contactEmail", widget: "string", default: "shuvorajofficial@gmail.com" }
+          - { label: "Enable Adsterra Banner Slot", name: "enableAdsterraBanner", widget: "boolean", default: true }
+          - { label: "Enable Adsterra Social Bar", name: "enableAdsterraSocialBar", widget: "boolean", default: true }
+          - { label: "Enable Adsterra Popunder", name: "enableAdsterraPopunder", widget: "boolean", default: false }

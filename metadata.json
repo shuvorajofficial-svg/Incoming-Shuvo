@@ -1,0 +1,6 @@
+{
+  "name": "Income Shuvo – Personal Travel Blog & Tourism Guide",
+  "description": "Explore More. Travel Better. Discover the World. Curated travel guides, itineraries, budget tips, and photography by Income Shuvo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

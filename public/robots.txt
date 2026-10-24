@@ -1,0 +1,7 @@
+# Robots.txt for Income Shuvo Travel Blog
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /preview/
+
+Sitemap: https://incomeshuvo.com/sitemap.xml
